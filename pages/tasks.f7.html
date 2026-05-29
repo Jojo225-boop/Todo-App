@@ -1,220 +1,49 @@
-<div class="page">
+<div class="page" data-name="tasks">
   <div class="navbar">
+    <div class="navbar-bg"></div>
     <div class="navbar-inner">
       <div class="left">
-        <a href="/" class="link back">
-          <i class="fas fa-arrow-left"></i>
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
           <span>Retour</span>
         </a>
       </div>
-      <div class="title">Tâches</div>
+      <div class="title">Mes Tâches</div>
     </div>
   </div>
+
   <div class="page-content">
     
-    <h1># My ToDo App</h1>
-    
-    <div class="todo-input">
-      <input type="text" id="newTaskInput2" placeholder="Nouvelle tâche...">
-      <button id="addTaskBtn2" class="add-button"><strong>Ajouter</strong></button>
+    <div class="list inset">
+      <ul>
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-input-wrap">
+              <input type="text" id="champ-tache" placeholder="Nouvelle tâche...">
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-    
-    <ul class="task-list" id="taskList2">
-      <li>
-        <label class="checkbox-container">
-          <input type="checkbox" checked class="green-checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <span class="task-text">Module F7 - Introduction</span>
-        <button class="delete-btn">🗑️</button>
-      </li>
-      <li>
-        <label class="checkbox-container">
-          <input type="checkbox" checked class="green-checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <span class="task-text">Module F7 - Session 1</span>
-        <button class="delete-btn">🗑️</button>
-      </li>
-      <li>
-        <label class="checkbox-container">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <span class="task-text">Module F7 - Session 2</span>
-        <button class="delete-btn">🗑️</button>
-      </li>
-      <li>
-        <label class="checkbox-container">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <span class="task-text">Module F7 - Session 3</span>
-        <button class="delete-btn">🗑️</button>
-      </li>
-    </ul>
-    
-  </div>
+
+    <div class="block">
+      <button class="button button-fill" id="btn-ajouter" style="width: 100%; background-color: #e8590c;">Ajouter</button>
+    </div>
+
+    <div class="block-title" id="zone-compteur">Tâches complétées : 0 / 0</div>
+
+    <div class="block block-strong-ios block-strong-transparent" style="margin-top: 10px; margin-bottom: 10px;">
+      <p class="segmented segmented-raised">
+        <button class="button button-active" id="filtre-toutes">Toutes</button>
+        <button class="button" id="filtre-afaire">À faire</button>
+        <button class="button" id="filtre-faites">Faites</button>
+      </p>
+    </div>
+
+    <div class="list simple-list">
+      <ul id="liste-taches-ul">
+        </ul>
+    </div> 
+
+  </div> 
 </div>
-
-<style>
-  .page-content {
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .todo-input {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .todo-input input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  /* Bouton Ajouter VERT */
-  .add-button {
-    padding: 10px 20px;
-    background-color: #34c759;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .add-button:hover {
-    background-color: #28a745;
-  }
-  
-  .task-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .task-list li {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 16px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .task-text {
-    flex: 1;
-  }
-  
-  /* Corbeille ROUGE */
-  .delete-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 5px;
-    color: #ff3b30;
-  }
-  
-  .delete-btn:hover {
-    color: #d32f2f;
-  }
-  
-  /* Checkbox verte personnalisée */
-  .checkbox-container {
-    display: block;
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: #fff;
-    border: 2px solid #34c759;
-    border-radius: 4px;
-  }
-  
-  .checkbox-container input:checked ~ .checkmark {
-    background-color: #34c759;
-  }
-  
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  .checkbox-container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  .checkbox-container .checkmark:after {
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-</style>
-
-<script>
-  const taskInput = document.getElementById('newTaskInput2');
-  const addBtn = document.getElementById('addTaskBtn2');
-  const taskList = document.getElementById('taskList2');
-  
-  function addTask() {
-    const newTask = taskInput.value.trim();
-    if (newTask !== '') {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <label class="checkbox-container">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        <span class="task-text">${newTask}</span>
-        <button class="delete-btn">🗑️</button>
-      `;
-      
-      const deleteBtn = li.querySelector('.delete-btn');
-      deleteBtn.addEventListener('click', () => li.remove());
-      
-      taskList.appendChild(li);
-      taskInput.value = '';
-    }
-  }
-  
-  document.querySelectorAll('.delete-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.target.closest('li').remove();
-    });
-  });
-  
-  addBtn.addEventListener('click', addTask);
-  taskInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') addTask();
-  });
-</script>
